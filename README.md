@@ -17,25 +17,29 @@ This is the physical prototype of the Automatic Cat Feeder, constructed using du
 This diagram illustrates how the core components—including the ESP32, HC-SR04 ultrasonic sensors, servo motor, OLED display, LEDs, and buzzer—are interconnected.
 
 ![Hardware Connection Diagram](./model/2.png)
-*Figure 2: Circuit diagram and electrical wiring layout (From Slide Page 4)*
+
+*Figure 2: Circuit diagram and electrical wiring layout *
 
 ### 3. Dashboard Web / Mobile UI Application
 The user interface developed on Arduino IoT Cloud. It allows real-time status monitoring, current food level percentages tracking, and remote calibration of feeding times.
 
 ![Cloud Dashboard UI](./model/1.png)
-*Figure 3: Arduino IoT Cloud Web & Mobile Application Dashboard (From Slide Page 5)*
+
+*Figure 3: Arduino IoT Cloud Web & Mobile Application Dashboard *
 
 ### 4. Setup Variable IoT Cloud
 Configuration of global IoT Cloud variables linked with the ESP32 firmware (e.g., `distance1`, `servo_state`, and `alarm_time`) which enable seamless bi-directional cloud data synchronization.
 
 ![IoT Cloud Variables Setup](./model/detaildesign.png)
-*Figure 4: Variables properties and cloud read/write registry configuration (From Slide Page 6)*
+
+*Figure 4: Variables properties and cloud read/write registry configuration *
 
 ### 5. Flowchart System
 The logic flow diagram of the main program loop. It outlines the initialization process, Wi-Fi reconnection sequences, real-time clock checks, and the conditional trigger rules for automatic dispensing.
 
-![System Logic Flowchart](./model/5.png)
-*Figure 5: MicroPython firmware operations and interrupt logic flowchart (From Slide Page 27)*
+![System Logic Flowchart](./model/4.png)
+
+*Figure 5: MicroPython firmware operations and interrupt logic flowchart*
 
 ---
 
@@ -101,65 +105,105 @@ The firmware for this project is written in **MicroPython** and utilizes the fol
 
 ---
 
+## 📸 แกลเลอรีระบบและแผนผังโครงงาน (System Gallery & Architecture)
+
+### 1. ภาพตัวเครื่องจริง (Project Hardware Showcase)
+ภาพถ่ายต้นแบบโมเดลเครื่องให้อาหารแมวอัตโนมัติที่ประกอบขึ้นรูปสำเร็จ พร้อมใช้งานจริง โดยเน้นโครงสร้างที่รองรับน้ำหนักของถังบรรจุอาหารแมวได้อย่างมั่นคง
+
+![เครื่องให้อาหารแมวอัตโนมัติ](./model/5.png)
+
+*รูปที่ 1: ชิ้นงานและโครงสร้างจริงของเครื่องให้อาหารแมวอัตโนมัติ *
+
+### 2. แผนผังการต่อวงจรไฟฟ้า (Hardware Connection Diagram)
+แผนผังแสดงการเชื่อมต่อขาใช้งานระหว่างบอร์ดควบคุมหลัก ESP32 กับอุปกรณ์ส่วนต่อขยายต่าง ๆ เช่น เซ็นเซอร์วัดระยะทาง Ultrasonic (HC-SR04), เซอร์โวมอเตอร์, จอแสดงผล OLED, หลอดไฟ LED และบัซเซอร์
+
+![แผนผังการต่อวงจรไฟฟ้า](./model/2.png)
+
+*รูปที่ 2: วงจรไฟฟ้าและรูปแบบการจัดวางสายไฟระบบ *
+
+### 3. หน้าต่างแอปพลิเคชันและแดชบอร์ด (Dashboard Web / Mobile UI Application)
+ส่วนควบคุมและแสดงผลผู้ใช้งาน (User Interface) บนระบบคลาวด์ ซึ่งรองรับการดูสถานะแบบเรียลไทม์ ตรวจสอบเปอร์เซ็นต์อาหารที่เหลือ และสั่งเปิด-ปิดวาล์วจ่ายอาหารระยะไกลผ่านสมาร์ตโฟน
+
+![แดชบอร์ดควบคุมบนระบบคลาวด์](./model/1.png)
+
+*รูปที่ 3: หน้าจอแสดงผล Dashboard บนแอปพลิเคชัน Arduino IoT Cloud *
+
+### 4. การตั้งค่าตัวแปรบนระบบคลาวด์ (Setup Variable IoT Cloud)
+รายละเอียดการกำหนดชนิดข้อมูลและสิทธิ์การเข้าถึงของตัวแปรส่วนกลาง (Global Variables) ที่ผูกเชื่อมโยงกันระหว่างเฟิร์มแวร์ของ ESP32 และคลาวด์ เช่น `distance1`, `servo_state`, และ `alarm_time`
+
+![การตั้งค่าตัวแปรบนระบบคลาวด์](./model/detaildesign.png)
+
+*รูปที่ 4: การลงทะเบียนและกำหนดคุณสมบัติของตัวแปรระบบไอโอที *
+
+### 5. ผังงานแสดงการทำงานของระบบ (Flowchart System)
+แผนผังอัลกอริทึมและขั้นตอนตรรกะการทำงานภายในโค้ด MicroPython ตั้งแต่ขั้นตอนเริ่มการทำงาน, การเชื่อมต่อ Wi-Fi, การตรวจสอบเวลาจริงจาก RTC ตลอดจนเงื่อนไขในการส่งสัญญาณสั่งจ่ายอาหารและแจ้งเตือน
+
+![ผังงานแสดงตรรกะของระบบ](./model/4.png)
+
+*รูปที่ 5: แผนผังลำดับขั้นตอนการทำงานของเฟิร์มแวร์และการจัดการคำสั่งขัดจังหวะ *
+
+---
+
 ## 🌟 คุณสมบัติเด่น (Features)
 * **การตั้งเวลาให้อาหารล่วงหน้า:** ควบคุมเวลาด้วยระบบ RTC (Real-Time Clock) เพื่อจ่ายอาหารตามปริมาณและเวลาที่กำหนดโดยอัตโนมัติ
 * **ควบคุมผ่านอินเทอร์เน็ต:** เชื่อมต่อ Wi-Fi สั่งการและเปลี่ยนการตั้งค่าได้จากระยะไกลผ่านแอปพลิเคชันสมาร์ตโฟน (Arduino IoT Cloud)
-* **ระบบแจ้งเตือนอัจฉริยะ:** * ใช้เซ็นเซอร์ HC-SR04 วัดระดับปริมาณอาหารคงเหลือ
-  * ส่งข้อความแจ้งเตือนผ่านช่องแชทบนระบบคลาวด์เมื่ออาหารใกล้หมดถัง (น้อยกว่า 10%)
-  * ส่งเสียงบัซเซอร์และแสดงผลสถานะเพื่อให้เจ้าของทราบ
-* **แสดงผลหน้าจอ OLED:** แสดงเวลาปัจจุบัน เวลาที่จะให้อาหารในรอบถัดไป และสถานะการเชื่อมต่อเครือข่าย
-* **ปุ่มกดให้อาหารแบบ Manual:** รองรับการกดปุ่มให้อาหารด้วยมือได้ทันทีที่ตัวเครื่อง ในกรณีที่สัญญาณอินเทอร์เน็ตหลุดหรือไม่สามารถเชื่อมต่อคลาวด์ได้
+* **ระบบแจ้งเตือนอัจฉริยะ:**
+  * ใช้เซ็นเซอร์ HC-SR04 วัดระดับปริมาณอาหารคงเหลือภายในถังเก็บ
+  * ส่งข้อความแจ้งเตือนอัตโนมัติเข้าช่องแชทคลาวด์ทันทีเมื่อตรวจพบว่าอาหารเหลือน้อยกว่า 10%
+  * ส่งสัญญาณเสียงบัซเซอร์และแสดงผลสถานะเพื่อให้เจ้าของและสัตว์เลี้ยงทราบ
+* **แสดงผลหน้าจอ OLED:** แสดงเวลาปัจจุบัน เวลาที่จะให้อาหารในรอบถัดไป และสถานะการเชื่อมต่อเครือข่ายแบบเรียลไทม์
+* **ปุ่มกดให้อาหารแบบ Manual:** รองรับการกดปุ่มให้อาหารด้วยมือได้ทันทีที่ตัวเครื่อง เป็นระบบสำรองในกรณีที่สัญญาณอินเทอร์เน็ตหลุดหรือไม่สามารถเชื่อมต่อคลาวด์ได้
 
 ---
 
 ## 🛠 อุปกรณ์ฮาร์ดแวร์ที่ใช้ (Hardware Architecture)
 * **Microcontroller:** ESP32
-* **Display:** OLED Display (SSD1306 I2C)
-* **Actuator:** Servo Motor (สำหรับเปิด-ปิดช่องปล่อยอาหาร)
+* **Display:** หน้าจอแสดงผล OLED Display (SSD1306 I2C)
+* **Actuator:** เซอร์โวมอเตอร์ (Servo Motor) สำหรับควบคุมการเปิด-ปิดช่องปล่อยอาหาร
 * **Sensors:** เซ็นเซอร์วัดระยะทาง Ultrasonic Sensor (HC-SR04) จำนวน 2 ชุด
 * **Indicators & Alerts:**
-  * LED 3 สี (Red, Green, Blue) แสดงสถานะระบบ
-  * Active Buzzer ส่งสัญญาณเสียง
-* **Input:** Push Button (สำหรับกดให้อาหารด้วยมือ)
+  * LED 3 สี (Red, Green, Blue) แสดงสถานะและโหมดการทำงานของตัวเครื่อง
+  * Active Buzzer สำหรับส่งสัญญาณเสียงเตือนและใช้ส่งเสียงเรียกสัตว์เลี้ยง
+* **Input:** ปุ่มกด (Push Button) สำหรับสั่งให้อาหารด้วยมือแบบทันที
 
 ### การต่อขาใช้งาน (GPIO Pin Mapping)
 | อุปกรณ์ | ขาของ ESP32 | รายละเอียด |
 | :--- | :--- | :--- |
-| **OLED Display** | SCL $\rightarrow$ 22, SDA $\rightarrow$ 21 | สื่อสารแบบ I2C |
-| **Servo Motor** | Signal $\rightarrow$ 14 | ควบคุมมุมเปิดฝาถ้วยอาหาร |
-| **Ultrasonic 1** | TRIG $\rightarrow$ 25, ECHO $\rightarrow$ 33 | วัดระดับอาหารคงเหลือในถัง |
-| **Ultrasonic 2** | TRIG $\rightarrow$ 27, ECHO $\rightarrow$ 26 | วัดระดับอาหารในชาม/ถาด |
-| **Buzzer** | Positive $\rightarrow$ 12 | ส่งเสียงแจ้งเตือน/เรียกแมว |
-| **Push Button**| One side $\rightarrow$ 13 | กดให้อาหารแบบแมนนวล (Interrupt) |
-| **Red LED** | GPIO 4 | ไฟแสดงสถานะระบบ (ผ่านตัวต้านทาน) |
-| **Green LED** | GPIO 2 | ไฟแสดงสถานะระบบ (ผ่านตัวต้านทาน) |
-| **Blue LED** | GPIO 15 | ไฟแสดงสถานะตอนจ่ายอาหาร (ผ่านตัวต้านทาน) |
+| **OLED Display** | SCL $\rightarrow$ 22, SDA $\rightarrow$ 21 | การสื่อสารแบบ I2C |
+| **Servo Motor** | Signal $\rightarrow$ 14 | ควบคุมมุมเปิดฝาถ้วยปล่อยอาหาร |
+| **Ultrasonic 1** | TRIG $\rightarrow$ 25, ECHO $\rightarrow$ 33 | วัดปริมาณอาหารที่เหลือในถังเก็บอาหาร |
+| **Ultrasonic 2** | TRIG $\rightarrow$ 27, ECHO $\rightarrow$ 26 | วัดระดับปริมาณอาหารในถาด/ชามกินข้าว |
+| **Buzzer** | Positive $\rightarrow$ 12 | ส่งเสียงสัญญาณเตือน / ส่งเสียงเรียกแมว |
+| **Push Button**| One side $\rightarrow$ 13 | ปุ่มกดให้อาหารแบบแมนนวล (Hardware Interrupt) |
+| **Red LED** | GPIO 4 | ไฟแสดงสถานะระบบทั่วไป (ต่อผ่านตัวต้านทาน) |
+| **Green LED** | GPIO 2 | ไฟแสดงสถานะระบบทั่วไป (ต่อผ่านตัวต้านทาน) |
+| **Blue LED** | GPIO 15 | ไฟแสดงสถานะขณะที่กำลังจ่ายอาหาร (ต่อผ่านตัวต้านทาน) |
 
 ---
 
 ## 📂 โครงสร้างซอฟต์แวร์ (Software & Libraries)
-โค้ดในโปรเจกต์นี้เขียนด้วย **MicroPython** และมีการนำเข้าไลบรารีที่จำเป็นดังนี้:
-* `machine` (Pin, SoftI2C, PWM, RTC) สำหรับควบคุมฮาร์ดแวร์
-* `ssd1306` สำหรับควบคุมหน้าจอแสดงผล
-* `arduino_iot_cloud` สำหรับเชื่อมต่อแพลตฟอร์ม Arduino Cloud
-* `hcsr04` ไลบรารีจัดการเซ็นเซอร์ Ultrasonic
-* `servo` ไลบรารีควบคุมเซอร์โวมอเตอร์
-* `ntptime` สำหรับดึงเวลามาตรฐานจากอินเทอร์เน็ตมาตั้งค่าให้ RTC
+โค้ดควบคุมระบบทั้งหมดถูกเขียนขึ้นด้วยภาษา **MicroPython** โดยนำเข้าไลบรารีที่จำเป็นดังต่อไปนี้:
+* `machine` (Pin, SoftI2C, PWM, RTC) — สำหรับเข้าถึงและสั่งการทำงานอุปกรณ์ฮาร์ดแวร์ระดับต่ำ
+* `ssd1306` — ไลบรารีสำหรับจัดการหน้าจอและวาดตัวอักษรลงบนหน้าจอ OLED
+* `arduino_iot_cloud` — โมดูลที่ใช้เชื่อมต่อ ESP32 เข้ากับระบบคลาวด์ของ Arduino
+* `hcsr04` — ไลบรารีจัดการจังหวะพัลส์สัญญาณของเซ็นเซอร์ Ultrasonic
+* `servo` — ตัวขับเคลื่อนและกำหนดตำแหน่งองศาของเซอร์โวมอเตอร์
+* `ntptime` — ใช้ส่งคำขอเวลามาตรฐาน (NTP) ผ่านอินเทอร์เน็ตเพื่อเทียบเวลาให้ระบบ RTC เที่ยงตรง
 
 ---
 
 ## 🔧 ปัญหาและการแก้ไข (Problems & Solutions)
 
 1. **โครงสร้างไม่แข็งแรง:** เนื่องจากเดิมใช้ไม้พลาสวูดและกาวบางชนิดยึดติดไม่แน่นพอ ทำให้ชิ้นงานหลุดออกจากกัน และเมื่อใส่อาหารแมวจริงซึ่งมีน้ำหนักมากทำให้ชิ้นงานเอนเอียง
-   * **วิธีแก้ไข:** เปลี่ยนมาใช้ **กาวร้อน** ที่มีความเหนียวแน่นทนทานกว่าเดิม, เพิ่มฐานรองรับน้ำหนัก และทำการขันน็อตยึดถ้วยอาหารเข้ากับตัวชิ้นงานหลัก
-2. **สายไฟหลุดบ่อย:** ในช่วงทดสอบสายจัมเปอร์มักจะหลุดออกจากบอร์ดทดลอง ทำให้ระบบทำงานไม่ราบรื่น
-   * **วิธีแก้ไข:** เปลี่ยนจากการเสียบสายจัมเปอร์เป็นการ **บัดกรีสายไฟ** เพื่อเพิ่มความแข็งแรง ทนทาน และมีประสิทธิภาพในการนำสัญญาณสูงขึ้น
+   * **วิธีแก้ไข:** เปลี่ยนมาใช้ **กาวร้อน** ที่มีความเหนียวแน่นทนทานกว่าเดิมในการเชื่อมต่อโครงสร้างพลาสวูด, เสริมส่วนฐานรับน้ำหนักให้กว้างขึ้น และทำการขันน็อตยึดถ้วยอาหารเข้ากับโครงสร้างหลักอย่างแน่นหนา
+2. **สายไฟหลุดบ่อย:** ในช่วงขั้นตอนการทดสอบบนบอร์ดทดลอง (Breadboard) สายจัมเปอร์มักจะหลุดออกจากช่องเสียบได้ง่าย ส่งผลให้ระบบทำงานผิดพลาดหรือไม่เสถียร
+   * **วิธีแก้ไข:** เปลี่ยนจากการใช้สายเสียบจัมเปอร์เป็นการ **บัดกรีสายไฟถาวร** ลงบนแผ่นวงจร ซึ่งช่วยเพิ่มความแข็งแรงทางกล ทนทานต่อแรงสั่นสะเทือน และนำสัญญาณไฟฟ้าได้ดียิ่งขึ้น
 
 ---
 
 ## 👥 สมาชิกผู้พัฒนา (Team Members)
 * สโรชินี บุญฤทธิ์ 
-* อภิสิทธิ์ ศักดิ์สุริยา
+* อภิสิทธิ์ ศักดิ์สุริยา 
 * ปัญปภัส วงค์แก้ว 
 * ชลธิชา พุ่มพวง 
 * ศศิกานต์ โคตรปัดทุม 
