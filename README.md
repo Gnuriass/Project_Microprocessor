@@ -4,6 +4,41 @@ An automatic cat feeder project powered by the **ESP32** microcontroller and int
 
 ---
 
+## 📸 System Gallery & Architecture
+
+### 1. Project Hardware Showcase
+This is the physical prototype of the Automatic Cat Feeder, constructed using durable materials and securely assembled to support the weight of the cat food.
+
+![Automatic Cat Feeder Prototype](./model/5.png)
+
+*Figure 1: Complete physical assembly of the Automatic Cat Feeder*
+
+### 2. System Hardware Connection (Circuit Diagram)
+This diagram illustrates how the core components—including the ESP32, HC-SR04 ultrasonic sensors, servo motor, OLED display, LEDs, and buzzer—are interconnected.
+
+![Hardware Connection Diagram](./model/2.png)
+*Figure 2: Circuit diagram and electrical wiring layout (From Slide Page 4)*
+
+### 3. Dashboard Web / Mobile UI Application
+The user interface developed on Arduino IoT Cloud. It allows real-time status monitoring, current food level percentages tracking, and remote calibration of feeding times.
+
+![Cloud Dashboard UI](./model/1.png)
+*Figure 3: Arduino IoT Cloud Web & Mobile Application Dashboard (From Slide Page 5)*
+
+### 4. Setup Variable IoT Cloud
+Configuration of global IoT Cloud variables linked with the ESP32 firmware (e.g., `distance1`, `servo_state`, and `alarm_time`) which enable seamless bi-directional cloud data synchronization.
+
+![IoT Cloud Variables Setup](./model/detaildesign.png)
+*Figure 4: Variables properties and cloud read/write registry configuration (From Slide Page 6)*
+
+### 5. Flowchart System
+The logic flow diagram of the main program loop. It outlines the initialization process, Wi-Fi reconnection sequences, real-time clock checks, and the conditional trigger rules for automatic dispensing.
+
+![System Logic Flowchart](./model/5.png)
+*Figure 5: MicroPython firmware operations and interrupt logic flowchart (From Slide Page 27)*
+
+---
+
 ## 🌟 Key Features
 * **Scheduled Feeding:** Utilizes a Real-Time Clock (RTC) system to automatically dispense precise amounts of food at pre-set times.
 * **Cloud-Based Remote Control:** Connected via Wi-Fi, enabling users to trigger manual feedings and adjust schedule settings remotely through the smartphone app (Arduino IoT Cloud).
